@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { createRoot } from 'react-dom/client';
 import { Link, Routes, Route } from "react-router-dom";
 import AddReceipt from "./components/add-receipt.component";
 import Receipt from "./components/receipt.component";
 import ReceiptsList from "./components/receipt-list.component";
+import "./App.css";
+//import App from 'App';
 
-class App extends Component {
-  render() {
+//const root = createRoot(app);
+
+function App() {
     return (
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
@@ -37,7 +41,6 @@ class App extends Component {
         </div>
       </div>
     );
-  }
 }
 
 export default App;
