@@ -8,6 +8,7 @@ const Receipt = props => {
 
   const initialReceiptState = {
     id: null,
+    createdAt: "",
     title: "",
     description: "",
     published: false

@@ -117,9 +117,9 @@ const ReceiptsList = () => {
             <h4>Receipt</h4>
             <div>
               <label>
-                <strong>Timedate:</strong>
+                <strong>Timestamp:</strong>
               </label>{" "}
-              {timestamp}
+              {currentReceipt.createdAt}
             </div>
             <div>
               <label>
