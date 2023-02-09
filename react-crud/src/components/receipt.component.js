@@ -8,9 +8,11 @@ const Receipt = props => {
 
   const initialReceiptState = {
     id: null,
-    createdAt: "",
-    title: "",
-    description: "",
+    shop_name: "",
+    item1: "",
+    item2: "",
+    item3: "",
+    cashier: "Sean",
     published: false
   };
   const [currentReceipt, setCurrentReceipt] = useState(initialReceiptState);
@@ -40,8 +42,10 @@ const Receipt = props => {
   const updatePublished = status => {
     var data = {
       id: currentReceipt.id,
-      title: currentReceipt.title,
-      description: currentReceipt.description,
+      shop_name: currentReceipt.shop_name,
+      item1: currentReceipt.item1,
+      item2: currentReceipt.item2,
+      item3: currentReceipt.item3,
       published: status
     };
 
@@ -84,24 +88,60 @@ const Receipt = props => {
           <h4>Receipt</h4>
           <form>
             <div className="form-group">
-              <label htmlFor="title">Title</label>
+              <label htmlFor="shop_name">Shop name</label>
               <input
                 type="text"
                 className="form-control"
-                id="title"
-                name="title"
-                value={currentReceipt.title}
+                id="shop_name"
+                name="shop_name"
+                value={currentReceipt.shop_name}
                 onChange={handleInputChange}
               />
             </div>
             <div className="form-group">
-              <label htmlFor="description">Description</label>
+              <label htmlFor="item1">Item 1</label>
               <input
                 type="text"
                 className="form-control"
-                id="description"
-                name="description"
-                value={currentReceipt.description}
+                id="item1"
+                name="item1"
+                value={currentReceipt.item1}
+                onChange={handleInputChange}
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="item2">Item 2</label>
+              <input
+                type="text"
+                className="form-control"
+                id="item2"
+                name="item2"
+                value={currentReceipt.item2}
+                onChange={handleInputChange}
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="item3">Item 3</label>
+              <input
+                type="text"
+                className="form-control"
+                id="item3"
+                name="item3"
+                value={currentReceipt.item3}
+                onChange={handleInputChange}
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="cashier">Cashier</label>
+              <input
+                type="text"
+                className="form-control"
+                id="cashier"
+                name="cashier"
+                value={currentReceipt.cashier}
                 onChange={handleInputChange}
               />
             </div>
@@ -114,24 +154,15 @@ const Receipt = props => {
             </div>
           </form>
 
-          {currentReceipt.published ? (
-            <button
-              className="badge badge-primary mr-2"
-              onClick={() => updatePublished(false)}
+          <button
+            className="badge badge-primary mr-2"
+            onClick={() => updatePublished(false)}
             >
-              UnPublish
-            </button>
-          ) : (
-            <button
-              className="badge badge-primary mr-2"
-              onClick={() => updatePublished(true)}
-            >
-              Publish
-            </button>
-          )}
+            Unapprove payment
+          </button>
 
           <button className="badge badge-danger mr-2" onClick={deleteReceipt}>
-            Delete
+            Delete this receipt
           </button>
 
           <button
@@ -139,7 +170,7 @@ const Receipt = props => {
             className="badge badge-success"
             onClick={updateReceipt}
           >
-            Update
+            Update this receipt
           </button>
           <p>{message}</p>
         </div>

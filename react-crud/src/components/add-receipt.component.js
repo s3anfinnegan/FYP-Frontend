@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import ReceiptDataService from "../services/service";
 
-var timestamp = new Date().getTime();
 const AddReceipt = () => {
   const initialReceiptState = {
     id: null,
@@ -9,22 +8,28 @@ const AddReceipt = () => {
     item1: "",
     item2: "",
     item3: "",
+    cashier: "Sean",
     published: false
   };
+
+
   const [receipt, setReceipt] = useState(initialReceiptState);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleInputChange = event => {
+
+    const handleInputChange = event => {
     const { name, value } = event.target;
     setReceipt({ ...receipt, [name]: value });
-  };
+
+};
 
   const saveReceipt = () => {
     var data = {
         shop_name: receipt.shop_name,
         item1: receipt.item1,
         item2: receipt.item2,
-        item3: receipt.item3
+        item3: receipt.item3,
+        cashier: receipt.cashier
     };
 
     ReceiptDataService.create(data)
@@ -35,6 +40,7 @@ const AddReceipt = () => {
           item1: response.data.item1,
           item2: response.data.item2,
           item3: response.data.item3,
+          cashier: response.data.cashier,
           published: response.data.published
         });
         setSubmitted(true);
@@ -112,13 +118,26 @@ const AddReceipt = () => {
               name="item3"
             />
           </div>
-
+          <div className="form-group">
+            <label htmlFor="cashier">Cashier</label>
+            <input
+              type="text"
+              className="form-control"
+              id="cashier"
+              required
+              value={receipt.cashier}
+              onChange={handleInputChange}
+              name="cashier"
+            />
+          </div>
           <button onClick={saveReceipt} className="btn btn-success">
             Process Payment
           </button>
         </div>
       )}
     </div>
+
+    
   );
 };
 

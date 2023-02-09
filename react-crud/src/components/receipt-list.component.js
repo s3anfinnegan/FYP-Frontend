@@ -147,6 +147,12 @@ const ReceiptsList = () => {
             </div>
             <div>
               <label>
+                <strong>Cashier:</strong>
+              </label>{" "}
+              {currentReceipt.cashier}
+            </div>
+            <div>
+              <label>
                 <strong>Payment status:</strong>
               </label>{" "}
               {currentReceipt.published ? "Published" : "Approved"}
