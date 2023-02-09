@@ -8,6 +8,9 @@ const ReceiptsList = () => {
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [searchTitle, setSearchTitle] = useState("");
 
+  //var timestamp = new Date().getTime();
+
+
   useEffect(() => {
     retrieveReceipts();
   }, []);
@@ -84,7 +87,7 @@ const ReceiptsList = () => {
         </div>
       </div>
       <div className="col-md-6">
-        <h4>Receipts List</h4>
+        <h4>Receipt History</h4>
 
         <ul className="list-group">
           {receipts &&
@@ -96,7 +99,7 @@ const ReceiptsList = () => {
                 onClick={() => setActiveReceipt(receipt, index)}
                 key={index}
               >
-                {receipt.title}
+                {receipt.shop_name}
               </li>
             ))}
         </ul>
@@ -114,21 +117,39 @@ const ReceiptsList = () => {
             <h4>Receipt</h4>
             <div>
               <label>
-                <strong>Title:</strong>
+                <strong>Timedate:</strong>
               </label>{" "}
-              {currentReceipt.title}
+              {timestamp}
             </div>
             <div>
               <label>
-                <strong>Description:</strong>
+                <strong>Shop name:</strong>
               </label>{" "}
-              {currentReceipt.description}
+              {currentReceipt.shop_name}
             </div>
             <div>
               <label>
-                <strong>Status:</strong>
+                <strong>Item 1:</strong>
               </label>{" "}
-              {currentReceipt.published ? "Published" : "Pending"}
+              {currentReceipt.item1}
+            </div>
+            <div>
+              <label>
+                <strong>Item 2:</strong>
+              </label>{" "}
+              {currentReceipt.item2}
+            </div>
+            <div>
+              <label>
+                <strong>Item 3:</strong>
+              </label>{" "}
+              {currentReceipt.item3}
+            </div>
+            <div>
+              <label>
+                <strong>Payment status:</strong>
+              </label>{" "}
+              {currentReceipt.published ? "Published" : "Approved"}
             </div>
 
             <Link
@@ -141,7 +162,7 @@ const ReceiptsList = () => {
         ) : (
           <div>
             <br />
-            <p>Please click on a Receipt...</p>
+            <p>Click on a receipt to view details...</p>
           </div>
         )}
       </div>

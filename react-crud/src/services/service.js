@@ -10,6 +10,7 @@ const get = id => {
 
 const create = data => {
   return http.post("/receipts", data);
+  //create QR code
 };
 
 const update = (id, data) => {

@@ -145,7 +145,7 @@ const Receipt = props => {
       ) : (
         <div>
           <br />
-          <p>Please click on a Receipt...</p>
+          <p>Click on a receipt to view details...</p>
         </div>
       )}
     </div>

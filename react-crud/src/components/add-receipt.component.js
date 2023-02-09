@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import ReceiptDataService from "../services/service";
 
+var timestamp = new Date().getTime();
 const AddReceipt = () => {
   const initialReceiptState = {
     id: null,
-    title: "",
-    description: "",
+    shop_name: "",
+    item1: "",
+    item2: "",
+    item3: "",
     published: false
   };
   const [receipt, setReceipt] = useState(initialReceiptState);
@@ -18,16 +21,20 @@ const AddReceipt = () => {
 
   const saveReceipt = () => {
     var data = {
-      title: receipt.title,
-      description: receipt.description
+        shop_name: receipt.shop_name,
+        item1: receipt.item1,
+        item2: receipt.item2,
+        item3: receipt.item3
     };
 
     ReceiptDataService.create(data)
       .then(response => {
         setReceipt({
           id: response.data.id,
-          title: response.data.title,
-          description: response.data.description,
+          shop_name: response.data.shop_name,
+          item1: response.data.item1,
+          item2: response.data.item2,
+          item3: response.data.item3,
           published: response.data.published
         });
         setSubmitted(true);
@@ -47,7 +54,7 @@ const AddReceipt = () => {
 <div className="submit-form">
       {submitted ? (
         <div>
-          <h4>You submitted successfully!</h4>
+          <h4>Transaction approved!</h4>
           <button className="btn btn-success" onClick={newReceipt}>
             Add
           </button>
@@ -55,33 +62,59 @@ const AddReceipt = () => {
       ) : (
         <div>
           <div className="form-group">
-            <label htmlFor="title">Title</label>
+            <label htmlFor="shop_name">Shop Name</label>
             <input
               type="text"
               className="form-control"
-              id="title"
+              id="shop_name"
               required
-              value={receipt.title}
+              value={receipt.shop_name}
               onChange={handleInputChange}
-              name="title"
+              name="shop_name"
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="description">Description</label>
+            <label htmlFor="item1">Item 1</label>
             <input
               type="text"
               className="form-control"
-              id="description"
+              id="item1"
               required
-              value={receipt.description}
+              value={receipt.item1}
               onChange={handleInputChange}
-              name="description"
+              name="item1"
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="item2">Item 2</label>
+            <input
+              type="text"
+              className="form-control"
+              id="item2"
+              required
+              value={receipt.item2}
+              onChange={handleInputChange}
+              name="item2"
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="item3">Item 3</label>
+            <input
+              type="text"
+              className="form-control"
+              id="item3"
+              required
+              value={receipt.item3}
+              onChange={handleInputChange}
+              name="item3"
             />
           </div>
 
           <button onClick={saveReceipt} className="btn btn-success">
-            Submit
+            Process Payment
           </button>
         </div>
       )}

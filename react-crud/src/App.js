@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { createRoot } from 'react-dom/client';
 import { Link, Routes, Route } from "react-router-dom";
 import AddReceipt from "./components/add-receipt.component";
 import Receipt from "./components/receipt.component";
@@ -25,7 +24,7 @@ function App() {
             </li>
             <li className="nav-item">
               <Link to={"/add"} className="nav-link">
-                Add
+                POS
               </Link>
             </li>
           </div>
