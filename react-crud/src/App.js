@@ -4,10 +4,9 @@ import { Link, Routes, Route } from "react-router-dom";
 import AddReceipt from "./components/add-receipt.component";
 import Receipt from "./components/receipt.component";
 import ReceiptsList from "./components/receipt-list.component";
+import QrCode from "./components/QrCode";
 import "./App.css";
-//import App from 'App';
 
-//const root = createRoot(app);
 
 function App() {
     return (
@@ -23,19 +22,26 @@ function App() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to={"/add"} className="nav-link">
+              <Link to={"/pos"} className="nav-link">
                 POS
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to={"/qrcode"} className="nav-link">
+                QR Code
               </Link>
             </li>
           </div>
         </nav>
 
+
         <div className="container mt-3">
           <Routes>
             <Route path="/" element={<ReceiptsList/>} />
             <Route path="/receipts" element={<ReceiptsList/>} />
-            <Route path="/add" element={<AddReceipt/>} />
+            <Route path="/pos" element={<AddReceipt/>} />
             <Route path="/receipts/:id" element={<Receipt/>} />
+            <Route path="/qrcode" element={<QrCode/>} />
           </Routes>
         </div>
       </div>

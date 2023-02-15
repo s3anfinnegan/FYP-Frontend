@@ -150,7 +150,7 @@ const Receipt = props => {
               <label>
                 <strong>Status:</strong>
               </label>
-              {currentReceipt.published ? "Published" : "Pending"}
+              {currentReceipt.published ? "Payment" : "Approved"}
             </div>
           </form>
 

@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import ReceiptDataService from "../services/service";
 import { Link } from "react-router-dom";
 
+
 const ReceiptsList = () => {
   const [receipts, setReceipts] = useState([]);
   const [currentReceipt, setCurrentReceipt] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [searchTitle, setSearchTitle] = useState("");
-
-  //var timestamp = new Date().getTime();
 
 
   useEffect(() => {
