@@ -1,19 +1,47 @@
 import React from 'react';
-import QRCode from 'qrcode.react';
-import PropTypes from 'prop-types';
+import { useState } from "react";
+import { QRCodeCanvas } from "qrcode.react";
 
-const QrCode = ({ objectId }) => {
-  const myMongoDbObjectId = '63ecffc1a549fbda146120cb' // fetch or generate the MongoDB Object ID
-  const qrCodeValue = objectId.toString();
+const QrCode = () => {
+  const [url, setUrl] = useState("");
+
+  const downloadQRCode = (e) => {
+    e.preventDefault();
+    setUrl("");
+  };
+
+  const qrCodeEncoder = (e) => {
+    setUrl(e.target.value);
+  };
+
+  const qrcode = (
+    <QRCodeCanvas
+      id="qrCode"
+      value={url}
+      size={300}
+      bgColor={"#51dedc"}
+      level={"H"}
+    />
+  );
   return (
-    <div>
-      <QrCode objectId={myMongoDbObjectId} />
+    <div className="qrcode__container">
+      <div>{qrcode}</div>
+      <div className="input__group">
+        <form onSubmit={downloadQRCode}>
+          <label>Enter URL</label>
+          <input
+            type="text"
+            value={url}
+            onChange={qrCodeEncoder}
+            placeholder="https://hackernoon.com"
+          />
+          <button type="submit" disabled={!url}>
+            Download QR code
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
-
-QrCode.propTypes = {
-  objectId: PropTypes.object.isRequired,
-};  
 
 export default QrCode;
