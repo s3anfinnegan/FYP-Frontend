@@ -1,9 +1,13 @@
 import React from 'react';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { QRCodeCanvas } from "qrcode.react";
 
-const QrCode = () => {
+const QrCode = (props) => {
   const [url, setUrl] = useState("");
+
+useEffect(() => {
+qrCodeEncoder();  
+  });
 
   const downloadQRCode = (e) => {
     e.preventDefault();
@@ -11,7 +15,7 @@ const QrCode = () => {
   };
 
   const qrCodeEncoder = (e) => {
-    setUrl(e.target.value);
+    setUrl("localhost:8081/receipts/" + props.id);
   };
 
   const qrcode = (
@@ -33,7 +37,7 @@ const QrCode = () => {
             type="text"
             value={url}
             onChange={qrCodeEncoder}
-            placeholder="https://hackernoon.com"
+            placeholder="http://receipt"
           />
           <button type="submit" disabled={!url}>
             Download QR code
@@ -42,6 +46,18 @@ const QrCode = () => {
       </div>
     </div>
   );
-};
+}
+
+/**function QrCode({ objectId }) {
+    const [qrCodeUrl, setQrCodeUrl] = useState('');
+  
+    useEffect(() => {
+      fetch(`/qr/${objectId}`)
+        .then(response => response.text())
+        .then(qrCodeUrl => setQrCodeUrl(qrCodeUrl));
+    }, [objectId]);
+  
+    return <img src={qrCodeUrl} alt="QR code" />;
+  }*/
 
 export default QrCode;

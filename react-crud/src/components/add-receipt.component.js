@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import ReceiptDataService from "../services/service";
+import QrCode from "./QrCode";
+
 
 const AddReceipt = () => {
   const initialReceiptState = {
@@ -15,6 +17,7 @@ const AddReceipt = () => {
 
   const [receipt, setReceipt] = useState(initialReceiptState);
   const [submitted, setSubmitted] = useState(false);
+  const [currentID, setCurrentID] = useState(0);
 
 
     const handleInputChange = event => {
@@ -44,6 +47,7 @@ const AddReceipt = () => {
           published: response.data.published
         });
         setSubmitted(true);
+        setCurrentID(response.data.id);
         console.log(response.data);
       })
       .catch(e => {
@@ -135,8 +139,9 @@ const AddReceipt = () => {
           </button>
         </div>
       )}
+      {submitted ? <QrCode id={currentID}/> : <></>}
     </div>
-
+    
     
   );
 };
