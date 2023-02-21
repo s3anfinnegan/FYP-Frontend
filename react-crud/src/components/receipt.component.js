@@ -16,7 +16,6 @@ const Receipt = props => {
     published: false
   };
   const [currentReceipt, setCurrentReceipt] = useState(initialReceiptState);
-  const [message, setMessage] = useState("");
 
   const getReceipt = id => {
     ReceiptDataService.get(id)

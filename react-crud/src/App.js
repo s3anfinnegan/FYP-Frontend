@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link, Routes, Route } from "react-router-dom";
 import AddReceipt from "./components/add-receipt.component";
@@ -6,6 +5,8 @@ import Receipt from "./components/receipt.component";
 import ReceiptsList from "./components/receipt-list.component";
 import QrCode from "./components/QrCode";
 import "./App.css";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import PDFReceipt from "./components/pdfReceipt";
 
 
 function App() {
@@ -31,6 +32,11 @@ function App() {
                 QR Code
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to={"/receipts/pdf"} className="nav-link">
+                PDF
+              </Link>
+            </li>
           </div>
         </nav>
 
@@ -42,6 +48,7 @@ function App() {
             <Route path="/pos" element={<AddReceipt/>} />
             <Route path="/receipts/:id" element={<Receipt/>} />
             <Route path="/qrcode" element={<QrCode/>} />
+            <Route path="/receipts/pdf" element={<PDFReceipt/>} />
           </Routes>
         </div>
       </div>

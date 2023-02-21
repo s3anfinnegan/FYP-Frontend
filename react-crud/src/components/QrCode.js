@@ -27,6 +27,7 @@ qrCodeEncoder();
       level={"H"}
     />
   );
+  
   return (
     <div className="qrcode__container">
       <div>{qrcode}</div>
@@ -37,7 +38,7 @@ qrCodeEncoder();
             type="text"
             value={url}
             onChange={qrCodeEncoder}
-            placeholder="http://receipt"
+            placeholder="http://localhost:8081/receipts/xxx"
           />
           <button type="submit" disabled={!url}>
             Download QR code
@@ -47,17 +48,5 @@ qrCodeEncoder();
     </div>
   );
 }
-
-/**function QrCode({ objectId }) {
-    const [qrCodeUrl, setQrCodeUrl] = useState('');
-  
-    useEffect(() => {
-      fetch(`/qr/${objectId}`)
-        .then(response => response.text())
-        .then(qrCodeUrl => setQrCodeUrl(qrCodeUrl));
-    }, [objectId]);
-  
-    return <img src={qrCodeUrl} alt="QR code" />;
-  }*/
 
 export default QrCode;
