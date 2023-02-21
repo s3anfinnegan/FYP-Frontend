@@ -11,7 +11,6 @@ const AddReceipt = () => {
     item2: "",
     item3: "",
     cashier: "Sean",
-    published: false
   };
 
 
@@ -44,7 +43,6 @@ const AddReceipt = () => {
           item2: response.data.item2,
           item3: response.data.item3,
           cashier: response.data.cashier,
-          published: response.data.published
         });
         setSubmitted(true);
         setCurrentID(response.data.id);
