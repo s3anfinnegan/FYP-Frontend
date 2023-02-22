@@ -19,7 +19,23 @@ const styles = StyleSheet.create({
   section: {
     margin: 10,
     padding: 10,
-    flexGrow: 1,
+    lineHeight: 1.5,
+    alignItems: "center", // Add alignItems property here
+    justifyContent: "center", // Add justifyContent property here
+  },
+  header: {
+    fontSize: 30,
+    lineHeight: 2,
+  },
+  datetime: {
+    lineHeight: 2,
+  },
+  footer: {
+    fontSize: 20,
+    fontStyle: "italic",
+  },
+  body: {
+    fontize: 16,
   },
   viewer: {
     width: window.innerWidth, //the pdf viewer will take up all of the width and height
@@ -54,19 +70,27 @@ const PDFReceipt = () => {
   const PDFReceiptJSON = () => (
     <Document>
       <Page size="A4">
-        <View>
-          <Text>{receiptData.shop_name}</Text>
-          <Text>Time: {receiptData.createdAt}</Text>
-          <Text>Item 1: {receiptData.item1}</Text>
-          <Text>€ {receiptData.price1}</Text>
-          <Text>Item 2: {receiptData.item2}</Text>
-          <Text>€ {receiptData.price2}</Text>
-          <Text>Item 3: {receiptData.item3}</Text>
-          <Text>€ {receiptData.price3}</Text>
-          <Text>Total: €{totalPrice}</Text>
+        <View style={styles.section}>
+          <View style={styles.header}>
+            <Text>{receiptData.shop_name}</Text>
+          </View>
+          <View style={styles.datetime}>
+            <Text>{receiptData.createdAt}</Text>
+          </View>
+          <View style={styles.body}>
+            <Text>Item 1: {receiptData.item1}</Text>
+            <Text>€ {receiptData.price1}</Text>
+            <Text>Item 2: {receiptData.item2}</Text>
+            <Text>€ {receiptData.price2}</Text>
+            <Text>Item 3: {receiptData.item3}</Text>
+            <Text>€ {receiptData.price3}</Text>
+          </View>
+          <Text>Total: €{totalPrice.toFixed(2)}</Text>
           <Text>Tax 23%: €{totalTax.toFixed(2)}</Text>
           <Text>Your cashier: {receiptData.cashier}</Text>
-          <Text>Have an amazing day!</Text>
+          <View style={styles.footer}>
+            <Text>Have an amazing day!</Text>
+          </View>
         </View>
       </Page>
     </Document>

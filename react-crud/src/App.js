@@ -11,7 +11,7 @@ function App() {
     <div>
       <nav className="navbar navbar-expand navbar-dark bg-dark">
         <a href="/receipts" className="navbar-brand">
-          Expense Automation
+          Seán Finnegan
         </a>
         <div className="navbar-nav mr-auto">
           <li className="nav-item">
@@ -24,11 +24,6 @@ function App() {
               POS Terminal
             </Link>
           </li>
-          <li className="nav-item">
-            <Link to={"/receipt/pdf"} className="nav-link">
-              e-Receipt
-            </Link>
-          </li>
         </div>
       </nav>
 
@@ -39,7 +34,6 @@ function App() {
           <Route path="/pos" element={<AddReceipt />} />
           <Route path="/receipts/:id" element={<PDFReceipt />} />
           <Route path="/qrcode" element={<QrCode />} />
-          <Route path="/receipt/pdf" element={<PDFReceipt />} />
         </Routes>
       </div>
     </div>

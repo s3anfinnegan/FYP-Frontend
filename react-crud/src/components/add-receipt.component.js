@@ -5,14 +5,14 @@ import QrCode from "./QrCode";
 const AddReceipt = () => {
   const initialReceiptState = {
     id: null,
-    shop_name: "",
+    shop_name: "Finnegan's Appliances",
     item1: "",
     item2: "",
     item3: "",
     price1: "0",
     price2: "0",
     price3: "0",
-    cashier: "Sean",
+    cashier: "Seán",
   };
 
   const [receipt, setReceipt] = useState(initialReceiptState);

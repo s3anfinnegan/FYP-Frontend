@@ -115,6 +115,12 @@ const ReceiptsList = () => {
             <h4>Receipt</h4>
             <div>
               <label>
+                <strong>Shop name:</strong>
+              </label>{" "}
+              {currentReceipt.shop_name}
+            </div>
+            <div>
+              <label>
                 <strong>Timestamp:</strong>
               </label>{" "}
               {currentReceipt.createdAt}
@@ -130,12 +136,6 @@ const ReceiptsList = () => {
                 <strong>View e-receipt:</strong>
               </label>{" "}
               <Text>localhost:8081/receipts/{currentReceipt.id}</Text>
-            </div>
-            <div>
-              <label>
-                <strong>Shop name:</strong>
-              </label>{" "}
-              {currentReceipt.shop_name}
             </div>
             <div>
               <label>
