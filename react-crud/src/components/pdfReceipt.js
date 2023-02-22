@@ -10,7 +10,7 @@ import {
   PDFViewer,
 } from "@react-pdf/renderer";
 
-// Create styles
+// Create styles for PDF
 const styles = StyleSheet.create({
   page: {
     flexDirection: "row",
@@ -64,7 +64,7 @@ const PDFReceipt = () => {
           <Text>Item 3: {receiptData.item3}</Text>
           <Text>€ {receiptData.price3}</Text>
           <Text>Total: €{totalPrice}</Text>
-          <Text>Tax 23%: €{totalTax}</Text>
+          <Text>Tax 23%: €{totalTax.toFixed(2)}</Text>
           <Text>Your cashier: {receiptData.cashier}</Text>
           <Text>Have an amazing day!</Text>
         </View>

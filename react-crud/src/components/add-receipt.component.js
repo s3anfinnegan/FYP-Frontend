@@ -9,9 +9,9 @@ const AddReceipt = () => {
     item1: "",
     item2: "",
     item3: "",
-    price1: "",
-    price2: "",
-    price3: "",
+    price1: "0",
+    price2: "0",
+    price3: "0",
     cashier: "Sean",
   };
 

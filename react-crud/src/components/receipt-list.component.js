@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReceiptDataService from "../services/service";
 import { Link } from "react-router-dom";
-
+import { Text } from "@react-pdf/renderer";
 
 const ReceiptsList = () => {
   const [receipts, setReceipts] = useState([]);
@@ -9,23 +9,22 @@ const ReceiptsList = () => {
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [searchTitle, setSearchTitle] = useState("");
 
-
   useEffect(() => {
     retrieveReceipts();
   }, []);
 
-  const onChangeSearchTitle = e => {
+  const onChangeSearchTitle = (e) => {
     const searchTitle = e.target.value;
     setSearchTitle(searchTitle);
   };
 
   const retrieveReceipts = () => {
     ReceiptDataService.getAll()
-      .then(response => {
+      .then((response) => {
         setReceipts(response.data);
         console.log(response.data);
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e);
       });
   };
@@ -43,28 +42,28 @@ const ReceiptsList = () => {
 
   const removeAllReceipts = () => {
     ReceiptDataService.removeAll()
-      .then(response => {
+      .then((response) => {
         console.log(response.data);
         refreshList();
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e);
       });
   };
 
   const findByTitle = () => {
     ReceiptDataService.findByTitle(searchTitle)
-      .then(response => {
+      .then((response) => {
         setReceipts(response.data);
         console.log(response.data);
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e);
       });
   };
 
   return (
-<div className="list row">
+    <div className="list row">
       <div className="col-md-8">
         <div className="input-group mb-3">
           <input
@@ -119,6 +118,18 @@ const ReceiptsList = () => {
                 <strong>Timestamp:</strong>
               </label>{" "}
               {currentReceipt.createdAt}
+            </div>
+            <div>
+              <label>
+                <strong>Receipt ID:</strong>
+              </label>{" "}
+              {currentReceipt.id}
+            </div>
+            <div>
+              <label>
+                <strong>View e-receipt:</strong>
+              </label>{" "}
+              <Text>localhost:8081/receipts/{currentReceipt.id}</Text>
             </div>
             <div>
               <label>

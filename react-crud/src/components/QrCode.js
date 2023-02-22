@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 import { useState, useEffect } from "react";
 import { QRCodeCanvas } from "qrcode.react";
 
 const QrCode = (props) => {
   const [url, setUrl] = useState("");
 
-useEffect(() => {
-qrCodeEncoder();  
+  useEffect(() => {
+    qrCodeEncoder();
   });
 
   const downloadQRCode = (e) => {
@@ -27,7 +27,7 @@ qrCodeEncoder();
       level={"H"}
     />
   );
-  
+
   return (
     <div className="qrcode__container">
       <div>{qrcode}</div>
@@ -47,6 +47,6 @@ qrCodeEncoder();
       </div>
     </div>
   );
-}
+};
 
 export default QrCode;

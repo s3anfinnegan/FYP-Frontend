@@ -25,7 +25,7 @@ function App() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to={"/receipts/pdf"} className="nav-link">
+            <Link to={"/receipt/pdf"} className="nav-link">
               e-Receipt
             </Link>
           </li>
@@ -39,7 +39,7 @@ function App() {
           <Route path="/pos" element={<AddReceipt />} />
           <Route path="/receipts/:id" element={<PDFReceipt />} />
           <Route path="/qrcode" element={<QrCode />} />
-          <Route path="/receipts/pdf" element={<PDFReceipt />} />
+          <Route path="/receipt/pdf" element={<PDFReceipt />} />
         </Routes>
       </div>
     </div>
