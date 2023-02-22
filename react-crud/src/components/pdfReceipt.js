@@ -40,7 +40,15 @@ const PDFReceipt = () => {
       .catch((e) => {
         console.log(e);
       });
-  }, []);
+  });
+
+  // Price and tax calculations
+  var itemA = parseFloat(receiptData.price1);
+  var itemB = parseFloat(receiptData.price2);
+  var itemC = parseFloat(receiptData.price3);
+  var totalPrice = itemA + itemB + itemC;
+  // Tax @ 23%
+  var totalTax = totalPrice * 0.23;
 
   // Passing JSON object items
   const PDFReceiptJSON = () => (
@@ -48,11 +56,17 @@ const PDFReceipt = () => {
       <Page size="A4">
         <View>
           <Text>{receiptData.shop_name}</Text>
-          <Text>{receiptData.createdAt}</Text>
-          <Text>{receiptData.item1}</Text>
-          <Text>{receiptData.item2}</Text>
-          <Text>{receiptData.item3}</Text>
-          <Text>{receiptData.cashier}</Text>
+          <Text>Time: {receiptData.createdAt}</Text>
+          <Text>Item 1: {receiptData.item1}</Text>
+          <Text>€ {receiptData.price1}</Text>
+          <Text>Item 2: {receiptData.item2}</Text>
+          <Text>€ {receiptData.price2}</Text>
+          <Text>Item 3: {receiptData.item3}</Text>
+          <Text>€ {receiptData.price3}</Text>
+          <Text>Total: €{totalPrice}</Text>
+          <Text>Tax 23%: €{totalTax}</Text>
+          <Text>Your cashier: {receiptData.cashier}</Text>
+          <Text>Have an amazing day!</Text>
         </View>
       </Page>
     </Document>
