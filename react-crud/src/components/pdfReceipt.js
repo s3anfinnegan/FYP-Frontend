@@ -48,6 +48,10 @@ const PDFReceipt = () => {
 
   const [receiptData, setReceiptData] = useState([]);
 
+  function sayHello() {
+    alert("Hello!");
+  }
+
   useEffect(() => {
     ReceiptDataService.get(params.id)
       .then((response) => {
@@ -56,7 +60,7 @@ const PDFReceipt = () => {
       .catch((e) => {
         console.log(e);
       });
-  });
+  }, []);
 
   // Price and tax calculations
   var itemA = parseFloat(receiptData.price1);
@@ -98,9 +102,12 @@ const PDFReceipt = () => {
 
   // Creating PDF Receipt component
   return (
-    <PDFViewer style={styles.viewer}>
-      <PDFReceiptJSON />
-    </PDFViewer>
+    <div>
+      <PDFViewer style={styles.viewer}>
+        <PDFReceiptJSON />
+      </PDFViewer>
+      <button onClick={sayHello}>Click me!</button>
+    </div>
   );
 };
 
