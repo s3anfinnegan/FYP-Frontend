@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ReceiptDataService from "../services/service";
+import XeroButton from "./xero-button";
 import {
   Page,
   Text,
@@ -47,10 +48,6 @@ const PDFReceipt = () => {
   const params = useParams();
 
   const [receiptData, setReceiptData] = useState([]);
-
-  function sayHello() {
-    alert("Hello!");
-  }
 
   useEffect(() => {
     ReceiptDataService.get(params.id)
@@ -103,10 +100,10 @@ const PDFReceipt = () => {
   // Creating PDF Receipt component
   return (
     <div>
+      <XeroButton />
       <PDFViewer style={styles.viewer}>
         <PDFReceiptJSON />
       </PDFViewer>
-      <button onClick={sayHello}>Click me!</button>
     </div>
   );
 };
