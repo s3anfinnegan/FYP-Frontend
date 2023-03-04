@@ -1,9 +1,19 @@
-import * as React from "react";
+import React from "react";
+import axios from "axios";
 import Button from "@mui/material/Button";
 
-function XeroButton() {
-  const handleButtonClick = () => {
-    window.location.href = "https://www.xero.com";
+const XeroButton = () => {
+  const handleButtonClick = async () => {
+    try {
+      const response = await axios.post("/send-email", {
+        email: "seansfyp@gmail.com",
+        subject: "Hello from React",
+        message: "This is a test email sent from React",
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error sending email", error);
+    }
   };
 
   return (
@@ -11,6 +21,6 @@ function XeroButton() {
       Upload to Xero
     </Button>
   );
-}
+};
 
 export default XeroButton;

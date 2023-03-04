@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ReceiptDataService from "../services/service";
+import axios from "axios";
 import XeroButton from "./xero-button";
 import {
   Page,
@@ -48,6 +49,8 @@ const PDFReceipt = () => {
   const params = useParams();
 
   const [receiptData, setReceiptData] = useState([]);
+
+  //axios.post("/create-pdf", this.PDFReceipt);
 
   useEffect(() => {
     ReceiptDataService.get(params.id)
