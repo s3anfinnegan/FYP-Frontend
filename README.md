@@ -9,5 +9,8 @@ This is the frontend component of my FYP (React based)
 🧾 e-Receipt: This tab displays the current e-receipt 
 
 ### Currently doing...
-Receipts are successfully being generated from the POS and I am now doing some CSS formatting for tge e-receipt presentation. The next step is to upload to Xero via
-the e-receipt. I am still aiming to have successful hits to Xero by the first week of March.
+I am on the final step of the project now. I am aiming to be uploading expenses to Xero this week.
+
+### MERN system architecture
+![image](https://user-images.githubusercontent.com/108742777/223429712-7d38ffee-1bc9-4f0b-a3af-e35dccca8ad0.png)
+
