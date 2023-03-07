@@ -5,14 +5,10 @@ import Button from "@mui/material/Button";
 const XeroButton = () => {
   const handleButtonClick = async () => {
     try {
-      const response = await axios.post("/send-email", {
-        email: "seansfyp@gmail.com",
-        subject: "Hello from React",
-        message: "This is a test email sent from React",
-      });
+      const response = await axios.post("http://localhost:8080/upload");
       console.log(response.data);
     } catch (error) {
-      console.error("Error sending email", error);
+      console.error("Error sending email" + error);
     }
   };
 
