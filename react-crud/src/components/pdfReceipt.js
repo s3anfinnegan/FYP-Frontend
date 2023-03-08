@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ReceiptDataService from "../services/service";
-import axios from "axios";
 import XeroButton from "./xero-button";
 import {
   Page,
@@ -40,7 +39,8 @@ const styles = StyleSheet.create({
     fontize: 16,
   },
   viewer: {
-    width: window.innerWidth, //the pdf viewer will take up all of the width and height
+    position: "center",
+    width: "50%", //the pdf viewer will take up all of the width and height
     height: window.innerHeight,
   },
 });
@@ -49,8 +49,6 @@ const PDFReceipt = () => {
   const params = useParams();
 
   const [receiptData, setReceiptData] = useState([]);
-
-  //axios.post("/create-pdf", this.PDFReceipt);
 
   useEffect(() => {
     ReceiptDataService.get(params.id)
@@ -102,8 +100,18 @@ const PDFReceipt = () => {
 
   // Creating PDF Receipt component
   return (
-    <div>
-      <XeroButton />
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+      }}
+    >
+      <div style={{ marginBottom: "10px" }}>
+        <XeroButton />
+      </div>
       <PDFViewer style={styles.viewer}>
         <PDFReceiptJSON />
       </PDFViewer>

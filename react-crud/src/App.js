@@ -11,12 +11,12 @@ function App() {
     <div>
       <nav className="navbar navbar-expand navbar-dark bg-dark">
         <a href="/receipts" className="navbar-brand">
-          Seán Finnegan
+          POS Simulator
         </a>
         <div className="navbar-nav mr-auto">
           <li className="nav-item">
             <Link to={"/receipts"} className="nav-link">
-              Transaction History
+              POS History
             </Link>
           </li>
           <li className="nav-item">
