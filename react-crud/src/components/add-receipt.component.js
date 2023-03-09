@@ -74,6 +74,7 @@ const AddReceipt = () => {
         </div>
       ) : (
         <div>
+          <h1>Point of Sale</h1>
           <div className="form-group">
             <label htmlFor="shop_name">Shop Name</label>
             <input

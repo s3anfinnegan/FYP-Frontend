@@ -15,7 +15,7 @@ function App() {
         </a>
         <div className="navbar-nav mr-auto">
           <li className="nav-item">
-            <Link to={"/receipts"} className="nav-link">
+            <Link to={"/history"} className="nav-link">
               POS History
             </Link>
           </li>
@@ -29,7 +29,7 @@ function App() {
       <div className="container mt-3">
         <Routes>
           <Route path="/" element={<ReceiptsList />} />
-          <Route path="/receipts" element={<ReceiptsList />} />
+          <Route path="/history" element={<ReceiptsList />} />
           <Route path="/pos" element={<AddReceipt />} />
           <Route path="/receipts/:id" element={<PDFReceipt />} />
           <Route path="/qrcode" element={<QrCode />} />
