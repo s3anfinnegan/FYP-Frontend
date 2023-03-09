@@ -5,12 +5,13 @@ import ReceiptsList from "./components/receipt-list.component";
 import QrCode from "./components/QrCode";
 import "./App.css";
 import PDFReceipt from "./components/pdfReceipt";
+import Button from "@mui/material/Button";
 
 function App() {
   return (
     <div>
       <nav className="navbar navbar-expand navbar-dark bg-dark">
-        <a href="/receipts" className="navbar-brand">
+        <a href="/history" className="navbar-brand">
           POS Simulator
         </a>
         <div className="navbar-nav mr-auto">

@@ -23,7 +23,7 @@ const QrCode = (props) => {
       id="qrCode"
       value={url}
       size={300}
-      bgColor={"#51dedc"}
+      bgColor={"#82baff"}
       level={"H"}
     />
   );
@@ -33,13 +33,8 @@ const QrCode = (props) => {
       <div>{qrcode}</div>
       <div className="input__group">
         <form onSubmit={downloadQRCode}>
-          <label>e-Receipt URL</label>
-          <input
-            type="text"
-            value={url}
-            onChange={qrCodeEncoder}
-            placeholder="http://localhost:8081/receipts/xxx"
-          />
+          <label>Expense URL: </label>
+          <input value={url} onChange={qrCodeEncoder} placeholder="" />
         </form>
       </div>
     </div>

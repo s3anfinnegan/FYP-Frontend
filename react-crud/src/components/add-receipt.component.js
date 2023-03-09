@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReceiptDataService from "../services/service";
 import QrCode from "./QrCode";
+import Button from "@mui/material/Button";
 
 const AddReceipt = () => {
   const initialReceiptState = {
@@ -68,9 +69,14 @@ const AddReceipt = () => {
       {submitted ? (
         <div>
           <h4>Transaction approved!</h4>
-          <button className="btn btn-success" onClick={newReceipt}>
-            Add
-          </button>
+          <Button
+            variant="contained"
+            size="large"
+            style={{ marginBottom: "10px" }}
+            onClick={newReceipt}
+          >
+            Create new sale
+          </Button>
         </div>
       ) : (
         <div>
@@ -178,9 +184,14 @@ const AddReceipt = () => {
               name="cashier"
             />
           </div>
-          <button onClick={saveReceipt} className="btn btn-success">
+          <Button
+            variant="contained"
+            onClick={saveReceipt}
+            size="large"
+            style={{ marginTop: "10px" }}
+          >
             Process Payment
-          </button>
+          </Button>
         </div>
       )}
       {submitted ? <QrCode id={currentID} /> : <></>}
