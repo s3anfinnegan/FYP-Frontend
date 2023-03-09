@@ -28,3 +28,5 @@ This is the frontend component of my FYP (React based). This system is working a
 
 ![image](https://user-images.githubusercontent.com/108742777/224007921-94797c94-30b0-41cd-ad24-e14087beff1d.png)
 *Figure 6 - Expense logged in Xero* 
+
+Feel free to reach out to me @s3anfinnegan on Twitter or Seán Finnegan on LinkedIn if you have any questions related to the project! 
